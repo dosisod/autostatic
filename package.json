@@ -1,0 +1,22 @@
+{
+  "name": "autostatic",
+  "version": "0.0.0",
+  "description": "Make client-side servers for static sites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dosisod/autostatic.git"
+  },
+  "author": "dosisod",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dosisod/autostatic/issues"
+  },
+  "homepage": "https://github.com/dosisod/autostatic#readme",
+  "dependencies": {
+	"express": "4.17.x"
+  }
+}
