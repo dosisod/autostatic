@@ -1,0 +1,26 @@
+<html>
+
+<head>
+<script src="client.js"></script>
+<title>autostatic test</title>
+</head>
+
+<body>
+
+<script>
+
+window.onload=function(e) {
+	//create AS cache which points to server root
+	//you could also setup the cache server elsewhere
+	var cache=new autostatic("http://0.0.0.0:1717/url1");
+
+	console.log(cache.data)
+	cache.data={"hello": "world"};
+	console.log(cache.data)
+}
+
+</script>
+
+</body>
+
+</html>

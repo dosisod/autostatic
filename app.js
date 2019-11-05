@@ -11,6 +11,7 @@ const ADDR="localhost";
 
 //send all requests to auto to be parsed
 app.get("*", (req, res)=> {
+	res.setHeader("Access-Control-Allow-Origin", "*");
 	res.json(auto.parse(req));
 })
 
