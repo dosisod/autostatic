@@ -12,8 +12,9 @@ $ cd autostatic
 $ npm install
 ```
 
-## Running
+## Building and Running
 
 ```
-$ node app.js
+$ tsc --build tsconfig.json
+$ node bin/app.js
 ```
