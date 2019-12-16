@@ -1,10 +1,8 @@
-//app.js simpliy interfaces with autostatic, sending it to be parsed.
-
-const express=require("express");
+import express from "express";
 var app=express();
 
-const autostatic=require(".");
-const auto=new autostatic();
+import { autostatic } from ".";
+const cache=new autostatic();
 
 const PORT=1717;
 const ADDR="localhost";
@@ -12,10 +10,9 @@ const ADDR="localhost";
 //send all requests to auto to be parsed
 app.get("*", (req, res)=> {
 	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.json(auto.parse(req));
+	res.json(cache.parse(req));
 })
 
-//start listening
 app.listen(PORT, ()=> {
 	console.log("autostatic -> on "+ADDR+":"+PORT+" (github.com/dosisod/autostatic)");
 });

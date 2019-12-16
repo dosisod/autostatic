@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+	"moduleResolution": "node",
+    "outDir": "bin/",
+    "rootDir": "src/",
+
+    "strictNullChecks": false,
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "removeComments": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "./src/*"
+  ],
+  "exclude": [
+    "./node-modules/*"
+  ]
+}
