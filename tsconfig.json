@@ -20,6 +20,6 @@
     "./src/*"
   ],
   "exclude": [
-    "./node-modules/*"
+    "./node_modules"
   ]
 }

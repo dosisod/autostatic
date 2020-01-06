@@ -1,21 +1,50 @@
+import { express } from "express";
+
+import { HashMap } from "hashmap";
+
 type Dict={[key: string]: any}
 
 export class autostatic {
-	data: Dict;
+	data: HashMap;
 
 	constructor() {
-		//all shared data objects
-		this.data={
-			"url1": "hit url1",
-			"url2": "hit url2"
+		this.data=new HashMap();
+	}
+
+	parse(req: express.Response): Dict {
+		let segmentedURL=req.url.split("/")
+		segmentedURL.splice(0, 1);
+
+		if (segmentedURL[0]=="set") {
+			return this.set(
+				segmentedURL[1],
+				segmentedURL[2]
+			);
+		}
+		else if (segmentedURL[0]=="get") {
+			return {
+				"data": this.data.get(segmentedURL[1]) || false
+			}
+		}
+
+		return {
+			"data": false,
 		};
 	}
 
-	parse(req): Dict {
-		const strippedUrl=req.url.substr(1);
+	set(key: string, value: string): Dict {
+		if (!key || !value) {
+			return {
+				"success": false,
+				"status": "missing key/value"
+			};
+		}
+
+		this.data.set(key, value)
 
 		return {
-			"data": this.data[strippedUrl] || false
+			"status": "added",
+			"success": true
 		};
 	}
 }

@@ -1,5 +1,5 @@
 import express from "express";
-var app=express();
+const app=express();
 
 import { autostatic } from ".";
 const cache=new autostatic();
@@ -7,7 +7,6 @@ const cache=new autostatic();
 const PORT=1717;
 const ADDR="localhost";
 
-//send all requests to auto to be parsed
 app.get("*", (req, res)=> {
 	res.setHeader("Access-Control-Allow-Origin", "*");
 	res.json(cache.parse(req));
