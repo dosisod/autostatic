@@ -1,6 +1,7 @@
 import { express } from "express";
-
 import { HashMap } from "hashmap";
+
+import { RESTfulURL } from "./restful";
 
 type Dict={[key: string]: any}
 
@@ -12,18 +13,17 @@ export class autostatic {
 	}
 
 	parse(req: express.Response): Dict {
-		let segmentedURL=req.url.split("/")
-		segmentedURL.splice(0, 1);
+		let restful=new RESTfulURL(req.url);
 
-		if (segmentedURL[0]=="set") {
+		if (restful.command=="set") {
 			return this.set(
-				segmentedURL[1],
-				segmentedURL[2]
+				restful.param[0],
+				restful.param[1]
 			);
 		}
-		else if (segmentedURL[0]=="get") {
+		else if (restful.command=="get") {
 			return {
-				"data": this.data.get(segmentedURL[1]) || false
+				"data": this.data.get(restful.param[0]) || false
 			}
 		}
 
