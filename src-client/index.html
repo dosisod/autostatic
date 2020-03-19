@@ -10,13 +10,21 @@
 <script>
 
 window.addEventListener("load", async function(e) {
-	window["cache"]=new autostatic("http://0.0.0.0:1717");
 
-	await cache.set("name", prompt("name?"))
+window["cache"]=new autostatic("http://0.0.0.0:1717");
 
-	const name=await cache.get("name")
-	console.log(name)
+cache.get("name").then(async (name) => {
+	if (!name) {
+		await cache.set("name", prompt("What is your name?"))
+		alert("Reload page")
+	}
+	else {
+		alert("Welcome back, " + name)
+	}
 })
+
+})
+
 
 </script>
 

@@ -1,5 +1,5 @@
-import { express } from "express";
-import { HashMap } from "hashmap";
+import express from "express";
+import HashMap from "hashmap";
 
 import { RESTfulURL } from "./restful";
 
@@ -13,7 +13,7 @@ export default class autostatic {
 	}
 
 	parse(req: express.Response): Dict {
-		let restful=new RESTfulURL(req.url);
+		const restful=new RESTfulURL(req.url);
 
 		if (restful.command=="set") {
 			return this.set(

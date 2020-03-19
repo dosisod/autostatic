@@ -2,7 +2,3 @@ node_modules/
 bin/
 
 src-client/client.js
-
-*.swp
-*.vim
-todo
