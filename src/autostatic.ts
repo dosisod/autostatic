@@ -5,7 +5,7 @@ import { RESTfulURL } from "./restful";
 
 type Dict={[key: string]: any}
 
-export class autostatic {
+export default class autostatic {
 	data: HashMap;
 
 	constructor() {

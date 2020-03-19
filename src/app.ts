@@ -1,7 +1,7 @@
 import express from "express";
 const app=express();
 
-import { autostatic } from ".";
+import autostatic from "./autostatic";
 const cache=new autostatic();
 
 const PORT=1717;
@@ -13,5 +13,6 @@ app.get("*", (req, res)=> {
 })
 
 app.listen(PORT, ()=> {
-	console.log("autostatic -> on "+ADDR+":"+PORT+" (github.com/dosisod/autostatic)");
+	console.log("autostatic");
+	console.log(`└─ http://${ ADDR }:${ PORT }`);
 });

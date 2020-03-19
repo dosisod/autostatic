@@ -13,7 +13,7 @@ export class RESTfulURL {
 	}
 
 	split(url: string): string[] {
-		let segmented=url.split("/");
+		const segmented=url.split("/");
 		segmented.splice(0, 1);
 
 		return segmented;
